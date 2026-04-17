@@ -1,0 +1,207 @@
+/* ========================
+   Reset & Base
+======================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a2e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+/* ========================
+   Container Principal
+======================== */
+.jokenpo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: 700px;
+    width: 95%;
+}
+
+/* ========================
+   Logo
+======================== */
+.logo {
+    max-width: 200px;
+    width: 100%;
+    filter: drop-shadow(0 0 15px rgba(100, 180, 255, 0.5));
+}
+
+/* ========================
+   Área (Jogador e PC)
+======================== */
+.area {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* ========================
+   Pontuação
+======================== */
+.pontuacao {
+    text-align: center;
+    min-width: 60px;
+}
+
+.pontuacao h4 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+
+.pontuacao p {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #64b4ff;
+    text-shadow: 0 0 10px rgba(100, 180, 255, 0.5);
+}
+
+/* ========================
+   Escolhas do Jogador
+======================== */
+.escolha,
+.escolha-pc {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.opcao,
+.opcao-pc {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.opcao:hover {
+    transform: scale(1.15);
+    border-color: #64b4ff;
+    box-shadow: 0 0 15px rgba(100, 180, 255, 0.4);
+}
+
+.opcao.selecionado {
+    border-color: #00e676;
+    box-shadow: 0 0 20px rgba(0, 230, 118, 0.5);
+    transform: scale(1.1);
+}
+
+.opcao-pc {
+    cursor: default;
+    opacity: 0.3;
+    transition: opacity 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.opcao-pc.selecionado-pc {
+    opacity: 1;
+    border-color: #ff5252;
+    box-shadow: 0 0 20px rgba(255, 82, 82, 0.5);
+    transform: scale(1.1);
+}
+
+/* ========================
+   Resultado e Botão
+======================== */
+.resultado-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+#mensagem-resultado {
+    font-size: 1.2rem;
+    font-weight: bold;
+    min-height: 1.5rem;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+#mensagem-resultado.vitoria {
+    color: #00e676;
+    text-shadow: 0 0 10px rgba(0, 230, 118, 0.6);
+}
+
+#mensagem-resultado.derrota {
+    color: #ff5252;
+    text-shadow: 0 0 10px rgba(255, 82, 82, 0.6);
+}
+
+#mensagem-resultado.empate {
+    color: #ffeb3b;
+    text-shadow: 0 0 10px rgba(255, 235, 59, 0.6);
+}
+
+#btn-jogar {
+    padding: 12px 40px;
+    background: linear-gradient(135deg, #64b4ff, #0077ff);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    box-shadow: 0 4px 20px rgba(0, 119, 255, 0.4);
+}
+
+#btn-jogar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 119, 255, 0.6);
+}
+
+#btn-jogar:active {
+    transform: translateY(0);
+    opacity: 0.85;
+}
+
+#btn-jogar:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ========================
+   Responsivo
+======================== */
+@media (max-width: 480px) {
+    .area {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .opcao,
+    .opcao-pc {
+        width: 65px;
+        height: 65px;
+    }
+}
